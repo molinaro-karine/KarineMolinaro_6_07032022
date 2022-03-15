@@ -3,13 +3,29 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye</title>
   </head>
   <body>
     <header>
-        <img src="assets/images/logo.png" class="logo" />
+        <a href="index.html">
+          <img id="logo" src="assets/images/logo.png" alt="FishEye">
+      </a>
+        <nav class="nav-list"  role="tablist">
+          <ul aria-label="tags">
+            <li><a href="#" id="portrait">#Portrait</a></li>
+            <li><a href="#" id="art">#Art</a></li>
+            <li><a href="#" id="fashion">#Fashion</a></li>
+            <li><a href="#" id="architecture">#Architecture</a></li>
+            <li><a href="#" id="travel">#Travel</a></li>
+            <li><a href="#" id="sports">#Sports</a></li>
+            <li><a href="#" id="animals">#Animals</a></li>
+            <li><a href="#" id="events">#Events</a></li>
+          </ul>
+        </nav>
         <h1>Nos photographes</h1>
     </header>
     <main id="main">
@@ -17,6 +33,5 @@
     </main>
     <script src="scripts/factories/Photographer.js"></script>
     <script src="scripts/pages/index.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
   </body>
 </html>

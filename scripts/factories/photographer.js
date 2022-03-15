@@ -13,9 +13,9 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
-        const pPrice = document.createElement( 'p' );
-        const cCity = document.createElement('p');
-        const tTagline = document.createElement('tagline');
+        const Price = document.createElement( 'p' );
+        const City = document.createElement('p');
+        const Tagline = document.createElement('tagline');
         const divInformation = document.createElement('div');
         //création de la constante
 
@@ -39,23 +39,23 @@ function photographerFactory(data) {
         const h2 = document.createElement( 'h2' );
 
         divInformation.className = 'informations';
-        cCity.className = 'location';
-        tTagline.className = 'tagline';
-        pPrice.className = 'price';
+        City.className = 'location';
+        Tagline.className = 'tagline';
+        Price.className = 'price';
 
         h2.textContent = name;
-        cCity.textContent = `${city}, ${country}`;
-        pPrice.textContent = `${price} euro/ jours`;
-        tTagline.textContent = tagline;
+        City.textContent = `${city}, ${country}`;
+        Price.textContent = `${price} euro/ jours`;
+        Tagline.textContent = tagline;
         // affichage du prix
         article.appendChild(img);
         article.appendChild(h2);
         article.appendChild(divInformation);
-        divInformation.appendChild(cCity);
+        divInformation.appendChild(City);
         //article.appendChild(h4);
         //divInformation.appendChild(cCountry);
-        divInformation.appendChild(tTagline);
-        divInformation.appendChild(pPrice);
+        divInformation.appendChild(Tagline);
+        divInformation.appendChild(Price);
         // appeler price
         return (article);
     }

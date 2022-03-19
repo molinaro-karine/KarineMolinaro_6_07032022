@@ -9,12 +9,21 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    <main id="main_photographer">
+      <section class="infosContainer"></section>
+      <div class="filterContainer">
+        <label for="tri">Trier par</h2>
+          <select id="tri" class="filterContainer__filter" aria-label="Trier par">
+            <option value="date">Date</option>
+            <option value="popularity">Popularité</option>
+            <option value="title">Titre</option>
+          </select>
       </div>
+      <div class="portfolioContainer"></div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -31,6 +40,8 @@
 				</form>
 			</div>
 		</div>
+    <script src="scripts/factories/photographer.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

@@ -1,64 +1,34 @@
-
-
-
-function photographerFactory(data) {
-    const { name, portrait, price, city, country, tagline, id } = data;
-    // j'ai ajouté price
+function photographerPageFactory(data) {
+    const { name, portrait, city, country, tagline } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
-    /*
-        Make card DOM then return element to the DisplayData function
-    */
-    function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        const Price = document.createElement( 'p' );
-        const City = document.createElement('p');
-        const Tagline = document.createElement('tagline');
-        const divInformation = document.createElement('div');
-        //création de la constante
+    function getPageUserCardDOM() {
+        const container = document.querySelector('.infosContainer')
 
-        /*
-            Expression litterale :
-                - Pour afficher le contenu d'une variable :
-                    ${nomDeLaVariable}
-                - Cette écriture doit se faire entre les backtick ``
-        */
+        container.innerHTML = ` 
+        <div class="infos">
+            <div class="infos-title">
+                <h2 class="infos-name">${name}</h2>
+            </div>
+            <div class="infos-subtitle">
+                <p class="location">${city}, ${country}</p>
+                <p class="tagline">${tagline}</p>
+            </div>
+        </div>
+        <div class="infos__contact">
+            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        </div>
+        <div class="profilPicture">
+            <img src="${picture}">
+        </div>
+        `
 
-        // Article
-        // const artcle = `<article>
-        //                     <a href="photographer.html?id=${id}">
-        //                         <img src="${picture}" alt="">
-        //                         <p>${price}</p>
-        //                     </a>
-        //                 </article>`;
-
-        img.setAttribute('src', picture);
-
-        const h2 = document.createElement( 'h2' );
-
-        divInformation.className = 'informations';
-        City.className = 'location';
-        Tagline.className = 'tagline';
-        Price.className = 'price';
-
-        h2.textContent = name;
-        City.textContent = `${city}, ${country}`;
-        Price.textContent = `${price} euro/ jours`;
-        Tagline.textContent = tagline;
-        // affichage du prix
-        article.appendChild(img);
-        article.appendChild(h2);
-        article.appendChild(divInformation);
-        divInformation.appendChild(City);
-        //article.appendChild(h4);
-        //divInformation.appendChild(cCountry);
-        divInformation.appendChild(Tagline);
-        divInformation.appendChild(Price);
-        // appeler price
-        return (article);
+        const modal = document.querySelector('.modal__subtitle-text')
+        modal.innerHTML = `
+        ${name}
+        `
+        return (container);
     }
-    return { name, picture, price, city, country, tagline, id, getUserCardDOM };
-    // ajout de price
+    return { name, portrait, getPageUserCardDOM }
 }

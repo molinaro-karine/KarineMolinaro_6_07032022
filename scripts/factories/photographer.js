@@ -24,7 +24,7 @@ function photographerPageFactory(data) {
         </div>
         `
 
-        const modal = document.querySelector('.modal__subtitle-text')
+        const modal = document.querySelector('.modalSubtitle-text')
         modal.innerHTML = `
         ${name}
         `

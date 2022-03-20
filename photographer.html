@@ -15,9 +15,10 @@
     </header>
     <main id="main_photographer">
       <section class="infosContainer"></section>
+      <!--Filter date-->
       <div class="filterContainer">
-        <label for="tri">Trier par</h2>
-          <select id="tri" class="filterContainer__filter" aria-label="Trier par">
+        <label for="filter">Trier par</h2>
+          <select id="filter" class="filterContainer__filter" aria-label="Trier par">
             <option value="date">Date</option>
             <option value="popularity">Popularité</option>
             <option value="title">Titre</option>
@@ -25,18 +26,38 @@
       </div>
       <div class="portfolioContainer"></div>
     </main>
+    <!--Modal-->
     <div id="contact_modal">
 			<div class="modal">
-				<header>
+        <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()"/>
+          <p class="modalSubtitle-text"></p>
         </header>
-				<form>
+        <!--Form-->
+				<form id="form" action="photographer.html" novalidate method="get" onsubmit="formValidation();">
 					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
+            <div class="formData">
+						  <label for="first">Prénom</label>
+              <input class="text-control" type="text" id="first" name="first" minlength="2"/>
+              <div class="error"></div> 
+            </div>
+            <div class="formData">
+              <label for="last">Nom</label>
+              <input class="text-control" type="text" id="last" name="last" minlength="2"/>
+              <div class="error"></div> 
+            </div>
+            <div class="formData">
+              <label for="email">E-mail</label><br>
+              <input class="text-control" type="email" id="email"  name="email"/><br>
+              <div class="error"></div> 
+					  </div>
+          <div class="formData">
+            <label for="message">Message</label>
+            <input class="text-control" type="textarea" id="message" name="message" minlength="2"/>
+            <div class="error"></div> 
+          </div> 
+          <button class="contact_button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>

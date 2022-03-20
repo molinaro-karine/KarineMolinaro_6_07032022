@@ -10,15 +10,8 @@ async function getPhotographers() {
   })
   }
   
-  // Obtentir des médias
-async function getMedias() {
-  const response = await fetch("../data/photographers.json")
-  const data = await response.json();
-  mediaArray = data.media.filter((e) => e.photographerId == id);
-  return ({
-      medias: mediaArray
-  })
-}
+
+
 // Affichage du photographe
 async function displayData(photographers) {
   const photographersHeader = document.querySelector(".infosContainer");

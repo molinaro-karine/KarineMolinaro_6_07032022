@@ -25,7 +25,7 @@
   justify-content: space-around;
 }
 .infos-name {
-  color: #db5b3f;
+  color: #d3573c;
   font-size: 36px;
 }
 .profilPicture img {
@@ -34,6 +34,38 @@
   border-radius: 50%;
   box-shadow: 0px 4px 12px rgb(0 0 0 / 25%);
   object-fit: cover;
+}
+/*filtre */
+.filterContainer {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+}
+.filterContainer__filter {
+  margin-left: 1rem;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  padding: 11px;
+  height: 45px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+select.filter {
+  margin-left: 1rem;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .contact_button {
@@ -48,6 +80,19 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.contact_button:hover {
+  background-color: #d3573c;
+}
+#contact_modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
 
 .modal {
   border-radius: 5px;
@@ -55,15 +100,16 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   padding: 35px;
-  margin: auto;
+  margin: 5% auto;
+
+  padding-top: 10px;
 }
 
 .modal header {
   justify-content: space-between;
   width: 100%;
+  position: relative;
 }
 
 .modal header img {
@@ -71,9 +117,16 @@
 }
 
 .modal header h2 {
-  font-size: 64px;
+  font-size: 52px;
   font-weight: normal;
   text-align: center;
+}
+.modalSubtitle-text {
+  justify-content: space-between;
+  width: 100%;
+  font-size: 52px;
+  position: absolute;
+  top: 20px;
 }
 
 form {
@@ -81,6 +134,7 @@ form {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 78px;
 }
 
 form label {
@@ -101,4 +155,13 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+/*message error*/
+.error {
+  font-size: 16px;
+  color: red;
+}
+/*message error success*/
+.formData.success input {
+  border: 2px solid #2ecc71;
 }

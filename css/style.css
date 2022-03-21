@@ -7,14 +7,13 @@ body {
 main {
   padding-bottom: 10%;
 }
-header {
+.profilPhotographers {
   display: flex;
-  flex-direction: row;
+  align-content: space-between;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  margin-top: 25px;
 }
-
 h1 {
   color: #901c1c;
   margin-right: 100px;
@@ -83,5 +82,17 @@ h1 {
   }
   .photographer_section article {
     width: 100%;
+  }
+}
+@media screen and (max-width: 668px) {
+  .profilPicture {
+    margin-top: 20px;
+  }
+  #logo {
+    margin-top: 20px;
+  }
+  header h1 {
+    text-align: center;
+    margin: auto;
   }
 }

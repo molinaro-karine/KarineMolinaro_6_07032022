@@ -13,7 +13,7 @@
 }
 .logo {
   height: 50px;
-  margin-left: 100px;
+  margin: 24px 72px;
 }
 .infosContainer {
   display: flex;
@@ -102,14 +102,12 @@ select.filter {
   flex-direction: column;
   padding: 35px;
   margin: 5% auto;
-
   padding-top: 10px;
 }
 
 .modal header {
+  display: flex;
   justify-content: space-between;
-  width: 100%;
-  position: relative;
 }
 
 .modal header img {
@@ -126,7 +124,7 @@ select.filter {
   width: 100%;
   font-size: 52px;
   position: absolute;
-  top: 20px;
+  top: 16%;
 }
 
 form {
@@ -156,12 +154,63 @@ form input {
   border: none;
   border-radius: 5px;
 }
+textarea#message {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
 /*message error*/
 .error {
-  font-size: 16px;
+  font-size: 24px;
   color: red;
+  font-weight: 600;
+  margin-top: 8px;
 }
 /*message error success*/
 .formData.success input {
   border: 2px solid #2ecc71;
+}
+@media screen and (max-width: 500px) {
+  .logo {
+    padding-top: 10px;
+  }
+  .modal {
+    width: 80%;
+    margin: auto;
+  }
+  .modal header {
+    flex-direction: row;
+  }
+  .modal header img {
+    width: 16px;
+  }
+  .modal header h2 {
+    font-size: 2rem;
+  }
+  .modalSubtitle-text {
+    top: 7%;
+    font-size: 2rem;
+  }
+  form div {
+    width: 100%;
+    margin-bottom: auto;
+  }
+  form label {
+    font-size: 1.5rem;
+  }
+  form input {
+    height: 50px;
+  }
+  .error {
+    font-size: 1rem;
+  }
+  textarea [name="message"] {
+    width: 100%;
+  }
+  button.contact_button {
+    margin-top: 15px;
+  }
+  .logo {
+    margin: 0;
+  }
 }

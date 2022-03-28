@@ -10,13 +10,14 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
+    <header class="profilPhotographers">
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
-      </a>
-    </header>
+        <img id="logo" src="assets/images/logo.png" alt="FishEye">
+    </a>
+</header>
     <main id="main_photographer">
       <section class="infosContainer"></section>
+
       <!--Filter date-->
       <div class="filterContainer">
         <label for="filter">Trier par</h2>
@@ -25,21 +26,28 @@
             <option value="popularity">Popularité</option>
             <option value="title">Titre</option>
           </select>
+
+          <!--portfolio photographers-->
       </div>
       <div class="portfolioContainer"></div>
     </main>
+
     <!--Modal-->
-    <div id="contact_modal">
-			<div class="modal">
+    <div id="contact_modal" role="dialog">
+      <div class="modal" aria-label="Ouvrir le formulaire de contact">
         <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()"/>
-          <p class="modalSubtitle-text"></p>
+          <h2 aria-label="Contactez-moi" role="button">Contactez-moi</h2>
+          <img alt="Icone de fermeture" src="assets/icons/close.svg" onclick="closeModal()"
+            aria-label="Fermer le formulaire de contact" />
         </header>
+
+        <div class="modal__subtitle">
+          <p class="modal__subtitle-text">.</p>
+        </div>
+
         <!--Form-->
 				<form id="form" action="photographer.html" novalidate method="get" onsubmit="formValidation();">
-					<div>
-            <div class="formData">
+					<div class="formData">
 						  <label for="first">Prénom</label>
               <input class="text-control" type="text" id="first" name="first" minlength="2"/>
               <div class="error"></div> 
@@ -63,8 +71,16 @@
 				</form>
 			</div>
 		</div>
-    <script src="scripts/factories/photographer.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
+    <!--lightbox and price-->
+    <div class="lightbox"></div>
+    <div class="pricing"></div>
+    <!--script-->
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/factories/lightbox.js"></script>
+    <script src="/scripts/factories/portfolioPhotographers.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
+   
+   
   </body>
 </html>

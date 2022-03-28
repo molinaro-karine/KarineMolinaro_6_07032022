@@ -19,7 +19,7 @@ const firstName = document.getElementById ('first');
 const lastName = document.getElementById ('last');
 const email = document.getElementById ('email');
 const message = document.getElementById ('message');
-const prenomNom = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+const firstLast = /^[A-Z][A-Za-z\é\è\ê\ë\'-]+$/;
 
 
 // Form fields validation
@@ -32,8 +32,8 @@ function validFirstName(){
        setError(firstName, 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.');
        return false;
 
-   } else if (prenomNom.test(firstName.value) == false){
-    setError(firstName, 'Votre prénom doit comporter que des lettres.');
+   } else if (firstLast.test(firstName.value) == false){
+    setError(firstName, 'Votre prénom ne doit pas contenir de chiffre ni de symbole.');
     return false;
    }
    setSuccess(firstName);
@@ -48,8 +48,8 @@ function validFirstName(){
    }else if(lastName.value.length <= 1){
        setError(lastName, 'Veuillez entrer 2 caractères ou plus pour le champ du nom.');
        return false;
-   } else if (prenomNom.test(lastName.value) == false){
-    setError(lastName, 'Votre nom doit comporter que des lettres.');
+   } else if (firstLast.test(lastName.value) == false){
+    setError(lastName, 'Votre nom ne doit pas contenir de chiffre ni de symbole.');
     return false;
    }
       setSuccess(lastName);
@@ -105,8 +105,13 @@ if (validFirstName() === true &&
 // Send form
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+    
     if (formValidation() == true) {
         closeModal();
+        console.log(firstName.value);
+        console.log(lastName.value);
+        console.log(email.value);
+        console.log(message.value);
         document.querySelector('form').reset();
     } else {
         forAllFieldsValidation();

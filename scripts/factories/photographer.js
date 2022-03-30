@@ -14,11 +14,11 @@ function photographerPageFactory(data) {
                 <h2 class="infos-name">${name}</h2>
             </div>
             <div class="infos-subtitle">
-                <p  class="location" 
-                    role="text" >${city}, ${country}</p>
-                <p  class="tagline" 
-                    role="text" 
-                    aria-label="Devise du photographe">${tagline}</p>
+            <p class="location" 
+                role="text" >${city}, ${country}</p>
+            <p class="tagline" 
+                role="text" 
+                aria-label="Devise du photographe">${tagline}</p>
             </div>
         </div>
         <div class="infos__contact">
@@ -29,6 +29,12 @@ function photographerPageFactory(data) {
             alt="Photo de ${name}">
         </div>
         `
+
+        const modal = document.querySelector('.modal__subtitle-text')
+        modal.innerHTML = `
+        ${name}
+        `
+        
         return (container);
     }
     return { name, portrait, getPageUserCardDOM }

@@ -14,7 +14,7 @@ function photographerFactory(data) {
         <div class="subtitle">
             <p class="location">${city}, ${country}</p>
             <p class="tagline">${tagline}</p>
-            <p class="price">${price}€/jour</p>
+            <p class="price_day">${price}€/jour</p>
         </div>
         `
         return (article);

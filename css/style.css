@@ -53,6 +53,7 @@ h1 {
 .location {
   color: #901c1c;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .photographer_section article img {
@@ -62,6 +63,9 @@ h1 {
   background: #d4d3d3;
   box-shadow: 0px 4px 12px rgb(0 0 0 / 25%);
   object-fit: cover;
+}
+p.price_day {
+  color: #525252;
 }
 @media screen and (max-width: 768px) {
   /*a refaire*/
@@ -74,11 +78,14 @@ h1 {
     flex-direction: column;
     padding-bottom: 35px;
   }
-  header a {
+  /*header a {
     margin: 20px 104px 0 0;
-  }
+  }*/
   header h1 {
     margin: 10px auto;
+  }
+  .profilPhotographers {
+    padding: 0;
   }
   .photographer_section article {
     width: 100%;
@@ -89,7 +96,7 @@ h1 {
     margin-top: 20px;
   }
   #logo {
-    margin-top: 20px;
+    margin: 8px;
   }
   header h1 {
     text-align: center;

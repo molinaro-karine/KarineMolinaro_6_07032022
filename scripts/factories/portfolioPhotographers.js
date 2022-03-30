@@ -1,5 +1,5 @@
 function portfolioPhotographersFactory(data) {
-    let { photographerId, title, image, video, price, id } = data;
+    let { photographerId, title, image, video, price, id, likes } = data;
     
     
     function getPortfolioCardDOM() {
@@ -13,11 +13,11 @@ function portfolioPhotographersFactory(data) {
                 src="../assets/medias/${image}" 
                 onclick="openLightbox(${id})"
                 tabindex="0"
-                aria-label="Titre de la photo${title}"/>
+                aria-label="Titre de la photo ${title}"/>
             <div class="portfolio__media-text"">
                 <p class="portfolio__media-text-title"> ${title}</p>
                 <div class="portfolio__media-text-icon">
-                <img src="../assets/icons/heart.svg"/>
+                ${likes} <img src="../assets/icons/heart.svg"/>
                 </div>
             </div>
             `

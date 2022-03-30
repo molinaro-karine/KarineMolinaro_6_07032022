@@ -61,8 +61,8 @@ function displayPrice(photographers){
 // Fonction de tri des médias
 function sortMedia() {
   const menu = document.querySelector('.filterContainer__filter');
-  menu.addEventListener('change', function (evt) {
-      var expression = evt.target.value;
+  menu.addEventListener('change', function (e) {
+      var expression = e.target.value;
       document.querySelector('.portfolioContainer').innerHTML = "";
       switch (expression) {
           case 'title':

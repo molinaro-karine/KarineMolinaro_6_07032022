@@ -1,3 +1,8 @@
+*,
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 #contact_modal {
   display: none;
 }
@@ -11,18 +16,19 @@
   width: 90%;
   margin: auto;
 }
-.logo {
+#logo-img {
   height: 50px;
-  margin: 24px 72px;
+  height: 50px;
+  margin: 28px 50px;
 }
 .infosContainer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   background: #eceff1;
-  padding: 28px 0;
-  width: 100%;
-  justify-content: space-around;
+  padding: 28px 30px;
+  justify-content: space-between;
+  margin: 15px 50px;
 }
 .infos-name {
   color: #d3573c;
@@ -41,6 +47,7 @@
   font-size: 18px;
   font-weight: bold;
   display: flex;
+  margin: 27px 50px;
 }
 .filterContainer__filter {
   margin-left: 1rem;
@@ -73,9 +80,7 @@ select.filter {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-figure.portfolio__media {
-  width: 25%;
+  margin: 0 16px;
 }
 
 img.portfolio__media-img {
@@ -106,7 +111,6 @@ p.portfolio__media-text-title {
   justify-content: space-between;
 }
 .portfolio__media-text-icon {
-  display: flex;
   font-size: 24px;
   color: #901c1c;
   font-weight: 400;
@@ -154,6 +158,10 @@ p.portfolio__media-text-title {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
+div#contact_modal {
+  /**/
+  background-color: white;
+}
 
 .modal {
   border-radius: 5px;
@@ -186,6 +194,10 @@ p.portfolio__media-text-title {
   font-size: 52px;
   position: absolute;
   top: 16%;
+}
+p.modal__subtitle-text {
+  font-size: 3rem;
+  margin-top: -8%;
 }
 
 form {
@@ -225,7 +237,16 @@ textarea#message {
 .lightbox {
   display: none;
 }
-
+.lightbox {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: #fff;
+}
 .lightbox .container {
   width: 1050px;
   height: 900px;
@@ -246,27 +267,24 @@ textarea#message {
 
 .lightbox .close {
   position: fixed;
-  width: 13%;
-  height: 42px;
-  right: 14%;
-  top: 77px;
+  width: 3%;
+  right: 6%;
+  top: 9%;
   cursor: pointer;
 }
 
 .lightbox .previous {
   position: fixed;
-  width: 48px;
-  height: 29px;
-  left: 131px;
-  top: 488px;
+  width: 27px;
+  left: 6%;
+  top: 50%;
   cursor: pointer;
 }
 .lightbox .next {
   position: fixed;
-  width: 48px;
-  height: 29px;
-  right: 131px;
-  top: 488px;
+  width: 27px;
+  right: 6%;
+  top: 50%;
   cursor: pointer;
 }
 .price {
@@ -297,18 +315,25 @@ textarea#message {
 
 @media screen and (max-width: 992px) {
   figure.portfolio__media {
-    width: 24%;
+    width: 40%;
   }
   img.portfolio__media-img,
   .portfolio__media-video {
-    width: 265px;
-    margin-left: -36px;
+    width: 100%; /**/
   }
 }
 
 @media screen and (max-width: 500px) {
-  .logo {
-    padding-top: 10px;
+  #logo-img {
+    margin: 5px;
+  }
+  header a {
+    margin: none;
+  }
+  .infosContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 23px 14px;
   }
   .modal {
     width: 80%;
@@ -350,15 +375,28 @@ textarea#message {
   /*portfolio*/
   .portfolioContainer {
     flex-direction: column;
-    align-items: center;
+    padding: 13px;
   }
   figure.portfolio__media {
     width: 100%;
-    margin: 10px 0px 0 -6px;
+    margin: auto;
   }
-  img.portfolio__media-img,
-  .portfolio__media-video {
-    width: 350px;
+  .lightbox .container {
+    width: 90%;
+  }
+  .lightbox .container .media {
+    width: 100%;
+    height: 116vh;
+  }
+  .lightbox .close {
+    width: 9%;
+    right: 6%;
+    top: 1%;
+  }
+  .pricing {
+    right: 0;
+  }
+  p.pricing__price {
     margin: auto;
   }
 }

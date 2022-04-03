@@ -78,9 +78,7 @@ p.price_day {
     flex-direction: column;
     padding-bottom: 35px;
   }
-  /*header a {
-    margin: 20px 104px 0 0;
-  }*/
+  
   header h1 {
     margin: 10px auto;
   }

@@ -2,6 +2,8 @@
 const id = (new URL(document.location)).searchParams.get('id'); 
 let mediaArray = [];
 let portfolioArray = [];
+let likesText = 0;
+
 
 // Fonction d'obtention des photographes
 async function getPhotographers() {
@@ -58,6 +60,39 @@ function displayPrice(photographers){
        container.prepend(price)
    })
 }
+//Affichage des likes
+function displayLikes(medias){
+    likesText = ""
+    const container = document.querySelector('.pricing')
+    const likes = document.createElement('p')
+    likes.className = "nombLikes"
+    medias.forEach((media) =>{
+        if (media.id == id){
+            likesText += media.likes
+         }
+         likes.innerHTML = `
+            <span id="likesText"
+            aria-label="Nombre de likes total du photographe ${likesText}"
+            tabindex="0">${likesText}</span>
+            <img src="../assets/icons/heart.svg" alt="like"/>   
+         `
+         container.prepend(likes);
+     })
+  }
+// Fonction de like d'un media
+function likeMedia(id) {
+    const portfolioToLike = portfolioArray.find(p => p.id === id)
+    likeCount = document.getElementById('likes.text');
+    if (portfolioToLike.like()) {
+        likesText.innerText = +likesText.innerText + 1;
+    } else {
+        likesText.innerText = +likesText.innerText - 1;
+    }
+
+}
+
+
+
 // Fonction de tri des médias
 function sortMedia() {
   const menu = document.querySelector('.filterContainer__filter');
@@ -76,13 +111,29 @@ function sortMedia() {
                   return 0;
               })
               break;
-          case 'popularity':
-              portfolioArray.sort((a, b) => b - a);
-              break;
-          case 'date':
-              portfolioArray.sort((a, b) => new Date(b.date) - new Date(a.date));
-              break;
-      }
+              case 'popularity':
+                  portfolioArray.sort((a,b) =>{
+                      if(a.likes < b.likes) {
+                          return 1;
+                      }
+                      if(a.likes > b.likes) {
+                          return -1;
+                      }
+                      return 0;
+                  })
+                  break;
+                  case 'date':
+                  portfolioArray.sort((a,b) =>{
+                      if(a.date > b.date){
+                          return 1;
+                      }
+                      if(a.date < b.date) {
+                          return -1;
+                      }
+                      return 0;
+                  })
+                  break;
+                }
       const photographersMedias = document.querySelector(".portfolioContainer");
       portfolioArray.forEach((portfolio) => {
           const portfolioCardDOM = portfolio.getPortfolioCardDOM();
@@ -113,6 +164,9 @@ async function init() {
   displayPrice(photographers);
   // Fonction de tri des médias 
   sortMedia(medias);
+  // affichage des likes
+  displayLikes(medias)
+
 }
     
 init();

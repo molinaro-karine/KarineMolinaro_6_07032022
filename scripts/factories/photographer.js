@@ -11,7 +11,7 @@ function photographerPageFactory(data) {
         container.innerHTML = ` 
         <div class="infos">
             <div class="infos-title">
-                <h2 class="infos-name">${name}</h2>
+                <h1 class="infos-name">${name}</h1>
             </div>
             <div class="infos-subtitle">
             <p class="location" 

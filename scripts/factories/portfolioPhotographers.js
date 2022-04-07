@@ -46,15 +46,19 @@ function portfolioPhotographersFactory(data) {
     }
 
     function like() {
+        let totalLikes = parseInt(document.querySelector('#likesText').innerText);
         if (alreadyLiked) {
             likes--
             alreadyLiked = false;
+            totalLikes--;
         } else {
             likes++;
             alreadyLiked = true;
+            totalLikes++;
         }
         document.getElementById('nbLike_' + id).innerText = likes;
+        document.getElementById('likesText').innerText = totalLikes;
         return alreadyLiked;
     }
-        return { id, photographerId, title, image, video, price, likes, getPortfolioCardDOM, like }
+        return { id, photographerId, title, image, video, price, likes, like, getPortfolioCardDOM }
     }

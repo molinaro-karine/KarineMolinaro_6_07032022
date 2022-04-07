@@ -13,7 +13,7 @@ body {
   margin: 0 100px;
 }
 #main_photographer {
-  width: 90%;
+  width: 93%;
   margin: auto;
 }
 #logo-img {
@@ -28,7 +28,9 @@ body {
   background: #eceff1;
   padding: 28px 30px;
   justify-content: space-between;
-  margin: 15px 50px;
+  margin: auto;
+  width: 89%;
+  border-radius: 5px;
 }
 .infos-name {
   color: #d3573c;
@@ -48,6 +50,7 @@ body {
   font-weight: bold;
   display: flex;
   margin: 27px 50px;
+  align-items: center;
 }
 .filterContainer__filter {
   margin-left: 1rem;
@@ -80,9 +83,12 @@ select.filter {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 16px;
+ /* margin: 0 16px;*/
 }
-
+figure.portfolio__media {
+  margin: 0;
+ 
+}
 img.portfolio__media-img {
   border-radius: 5px;
   width: 350px;
@@ -91,7 +97,7 @@ img.portfolio__media-img {
   cursor: pointer;
 }
 p.portfolio__media-text-title {
-  font-size: 24px;
+  font-size: 20px;
   color: #901c1c;
   font-weight: 400;
 }
@@ -115,23 +121,25 @@ p.portfolio__media-text-title {
   font-size: 24px;
   color: #901c1c;
   font-weight: 400;
+  align-items: stretch;
 }
 .portfolio__media-text-icon p {
   margin: 5px;
+}
+.portfolio__media-text-icon img:hover {
+  transform: scale(1.2)
 }
 /*Price */
 .pricing {
   background-color: #db8876;
   position: fixed;
   bottom: 0;
-  right: 50px;
-  width: 376px;
+  right: 16px;
+  width: 32%;
   border-radius: 5px 5px 0px 0px;
   display: flex;
-  flex-direction: row;
+  padding: 0 10px;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px;
 }
 
 .contact_button {
@@ -145,6 +153,10 @@ p.portfolio__media-text-title {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
+}
+.infos__contact {
+  width: 20%;
 }
 .contact_button:hover {
   background-color: #d3573c;
@@ -160,14 +172,13 @@ p.portfolio__media-text-title {
   background-color: rgba(26, 39, 156, 0.4);
 }
 div#contact_modal {
-  /**/
   background-color: white;
 }
 
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   padding: 35px;
@@ -187,7 +198,6 @@ div#contact_modal {
 .modal header h2 {
   font-size: 52px;
   font-weight: normal;
-  text-align: center;
 }
 .modalSubtitle-text {
   justify-content: space-between;
@@ -197,8 +207,9 @@ div#contact_modal {
   top: 16%;
 }
 p.modal__subtitle-text {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-top: -8%;
+  font-weight: 600;
 }
 
 form {
@@ -206,7 +217,7 @@ form {
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 78px;
+
 }
 
 form label {
@@ -219,7 +230,6 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
 }
 
 form input {
@@ -241,28 +251,27 @@ textarea#message {
 .lightbox {
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: #fff;
+
 }
 .lightbox .container {
-  width: 1050px;
+  width: 100%;
+  height: 100vh;
   position: fixed;
   margin: auto;
-  top: 0px;
-  left: 0px;
-  right: 0px;
   bottom: 0px;
+  background-color: white;
+}
+.container div {
+  display: flex;
+    justify-content: center;
+  margin: 5% auto;
+ 
 }
 
 .lightbox .container .media {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  object-fit: cover;
+  object-fit: contain;
+    width: 78%;
+    height: 78vh;
 }
 
 .lightbox .close {
@@ -328,16 +337,17 @@ textarea#message {
     margin: 5px;
   }
   header a {
-    margin: none;
+    margin: 0;
   }
   .infosContainer {
     flex-direction: column;
     align-items: center;
-    margin: 23px 14px;
+    margin: auto;
   }
   .modal {
-    width: 80%;
+    width: 82%;
     margin: auto;
+
   }
   .modal header {
     flex-direction: row;
@@ -346,21 +356,27 @@ textarea#message {
     width: 16px;
   }
   .modal header h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 500;
   }
-  .modalSubtitle-text {
-    top: 7%;
-    font-size: 2rem;
-  }
+  p.modal__subtitle-text {
+    font-size: 2.5rem;
+    margin-top: -18%;
+    font-weight: 500;
+}
   form div {
     width: 100%;
     margin-bottom: auto;
   }
   form label {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
+  .infos__contact {
+    width: 54%;
+}
   form input {
     height: 50px;
+    width: 98%;
   }
   .error {
     font-size: 1rem;
@@ -368,21 +384,34 @@ textarea#message {
   textarea [name="message"] {
     width: 100%;
   }
+  textarea#message {
+    width: 98%;
+}
   button.contact_button {
     margin-top: 15px;
+    height: 48px;
+    width: 93%;
   }
 
   /*portfolio*/
+  .filterContainer {
+    justify-content: center;
+}
+  #main_photographer {
+    width: 100%;
+    margin: auto;
+}
   .portfolioContainer {
     flex-direction: column;
-    padding: 13px;
+    margin-left: 15px;
   }
   figure.portfolio__media {
     width: 100%;
     margin: auto;
   }
   .lightbox .container {
-    width: 90%;
+    width: 98%;
+    height: 108vh;
   }
   .lightbox .container .media {
     width: 100%;
@@ -395,6 +424,9 @@ textarea#message {
   }
   .pricing {
     right: 0;
+    width: 90%;
+    margin: 20px 19px 0;
+    padding-top: 0px;
   }
   p.pricing__price {
     margin: auto;

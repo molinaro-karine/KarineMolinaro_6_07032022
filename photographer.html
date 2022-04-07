@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,38 +10,39 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header class="profilPhotographers">
-      <a href="index.html">
-        <img id="logo-img" src="assets/images/logo.png" alt="FishEye">
+    <header class="profilPhotographers" aria-label="photographer information">
+      <a href="index.html" aria-label="FishEye Home page">
+        <img id="logo-img" src="assets/images/logo.png" alt="FishEye Home page">
     </a>
 </header>
 <section class="infosContainer"></section>
  <!--Filter date-->
  <div class="filterContainer">
-  <label for="filter">Trier par</h2>
+  <label for="filter">Trier par</label>
     <select id="filter" class="filterContainer__filter" aria-label="Trier par">
       <option value="date">Date</option>
       <option value="popularity">Popularité</option>
       <option value="title">Titre</option>
     </select>
+  </div>
     <main id="main_photographer">
      <!--portfolio photographers-->
-      </div>
-      <div class="portfolioContainer"></div>
+      
+      <div class="portfolioContainer" aria-label="photographer likes and price"></div>
     </main>
 
     <!--Modal-form-->
     <div id="contact_modal" role="dialog">
       <div class="modal" aria-label="Ouvrir le formulaire de contact">
-        <header>
-          <h2 aria-label="Contactez-moi" role="button">Contactez-moi</h2>
-          <img alt="Icone de fermeture" src="assets/icons/close.svg" onclick="closeModal()"
+        <header aria-label="ent^te du formulaire">
+          <h2 aria-label="Contactez-moi">Contactez-moi</h2>
+          <img id="btn-close" alt="Icone de fermeture" src="assets/icons/close.svg" onclick="closeModal()"
             aria-label="Fermer le formulaire de contact" />
         </header>
     <!--Modale-->
-        <div class="modal__subtitle">
+    
           <p class="modal__subtitle-text">.</p>
-        </div>
+      
 
         <!--Form-->
 				<form id="form" action="photographer.html" novalidate method="get" onsubmit="formValidation();">

@@ -62,23 +62,24 @@ function displayPrice(photographers){
 }
 //Affichage des likes
 function displayLikes(medias){
-    likesText = ""
-    const container = document.querySelector('.pricing')
-    const likes = document.createElement('p')
-    likes.className = "nombLikes"
-    medias.forEach((media) =>{
-        if (media.id == id){
-            likesText += media.likes
-         }
+  likesText = 0
+  const container = document.querySelector('.pricing')
+  const likes = document.createElement('p')
+  likes.className = "nombLikes"
+  medias.forEach((media) =>{
+    
+      likesText += media.likes
+    
          likes.innerHTML = `
             <span id="likesText"
             aria-label="Nombre de likes total du photographe ${likesText}"
             tabindex="0">${likesText}</span>
-            <img src="../assets/icons/heart.svg" alt="like"/>   
+            <img src="../assets/icons/heart.svg" alt="like"/>              
          `
          container.prepend(likes);
      })
   }
+  
 // Fonction de like d'un media
 function likeMedia(id) {
     const portfolioToLike = portfolioArray.find(p => p.id === id)
@@ -90,8 +91,6 @@ function likeMedia(id) {
     }
 
 }
-
-
 
 // Fonction de tri des médias
 function sortMedia() {
@@ -123,10 +122,11 @@ function sortMedia() {
                   })
                   break;
                   case 'date':
-                  portfolioArray.sort((a,b) =>{
-                      if(a.date > b.date){
-                          return 1;
-                      }
+                  portfolioArray.sort((a,b) =>{                
+                    console.log(a.date); 
+                    if(a.date > b.date){
+                      return 1;
+                    }
                       if(a.date < b.date) {
                           return -1;
                       }
@@ -150,6 +150,7 @@ function openLightbox(id) {
 }
 
 
+
 // Fonction d'initialisation
 async function init() {
   // Récupère les datas des photographes
@@ -164,8 +165,10 @@ async function init() {
   displayPrice(photographers);
   // Fonction de tri des médias 
   sortMedia(medias);
-  // affichage des likes
-  displayLikes(medias)
+  // Affiche les likes
+  displayLikes(medias);
+ 
+  
 
 }
     

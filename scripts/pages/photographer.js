@@ -122,16 +122,11 @@ function sortMedia() {
                   })
                   break;
                   case 'date':
-                  portfolioArray.sort((a,b) =>{                
-                    console.log(a.date); 
-                    if(a.date > b.date){
-                      return 1;
-                    }
-                      if(a.date < b.date) {
-                          return -1;
-                      }
-                      return 0;
-                  })
+                    arr = portfolioArray.sort(function (a, b) {
+                      let dateA = new Date(a.date_prop);
+                      let dateB = new Date(b.date_prop);
+                      return dateA < dateB ? 1 : -1; 
+                    });
                   break;
                 }
       const photographersMedias = document.querySelector(".portfolioContainer");

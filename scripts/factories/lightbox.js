@@ -14,24 +14,31 @@ function lightboxFactory(medias, id) {
         closeLightbox.src = "../assets/icons/close.svg";
         closeLightbox.className = "close"
         closeLightbox.setAttribute("alt", "Fermer l'apperçu")
+        closeLightbox.setAttribute("tabindex", "0");
 
 
         const nextLightbox = document.createElement("img");
         nextLightbox.src = "../assets/icons/next.svg";
         nextLightbox.className = "next";
         nextLightbox.setAttribute("alt", "Media suivant")
+        nextLightbox.setAttribute("tabindex", "0");
 
         const previousLightbox = document.createElement("img");
         previousLightbox.src = "../assets/icons/previous.svg";
         previousLightbox.className = "previous";
         previousLightbox.setAttribute("alt", "Media précédent")
+        previousLightbox.setAttribute("tabindex", "0");
 
         // Au clic sur l'element de fermeture
         closeLightbox.addEventListener('click', () => {
             lightbox.style.display = "none"
         })
 
-        
+        window.addEventListener('keydown', function (e){
+            if (e.key === "Escape" || e.key === "Esc") {
+               lightbox.style.display = "none"
+            }
+        })
 
         lightbox.style.display = "block";
         if (medias[index].image) {

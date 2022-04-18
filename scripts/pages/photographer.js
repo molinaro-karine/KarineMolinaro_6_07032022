@@ -24,8 +24,7 @@ async function getMedias() {
 }
 
   // Affichage du photographe
-async function displayData(photographers) {
- 
+  async function displayData(photographers) {
   const photographe = photographers.find((e) => e.id == id);
   photographerPageFactory(photographe).getPageUserCardDOM();
 }

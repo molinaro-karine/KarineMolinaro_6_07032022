@@ -125,10 +125,15 @@ p.portfolio__media-text-title {
 .portfolio__media-text-icon button {
   background-color: #fff;
   border: none;
+  outline: 0;
 }
 .portfolio__media-text-icon p {
   margin: 5px;
 }
+/*a.openLightbox:focus {
+  border: none;
+  outline: 0;
+}*/
 .portfolio__media-text-icon img:hover {
   transform: scale(1.2)
 }

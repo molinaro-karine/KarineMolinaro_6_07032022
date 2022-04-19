@@ -2,6 +2,17 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
+    const closeBtnModal = document.querySelector("#contact_modal .close-contact-modal")
+    
+
+    closeBtnModal.focus()
+
+    closeBtnModal.addEventListener('keypress', (e) => {
+        if(e.key == "Enter"){
+          const modal = document.querySelector('#contact_modal')
+          modal.style.display = "none"
+        }
+      })
 }
 
 function closeModal() {

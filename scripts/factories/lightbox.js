@@ -41,6 +41,9 @@ function lightboxFactory(medias, id) {
             }
         })        
 
+       
+
+        
 
         lightbox.style.display = "block";
         if (medias[index].image) {

@@ -26,11 +26,10 @@ function portfolioPhotographersFactory(data) {
         }
         if (video) {
             media.innerHTML = `
-        <video class="portfolio__media-video" 
-            src="../assets/medias/${video}" type="video/mp4" 
-            onclick="openLightbox(${id})" tabindex="0"
-            aria-label="Titre de la vidéo ${title}">
-        </video>
+        <a href="#" class="openLightbox" data-id="${id}" onclick="openLightbox(${id})"><video alt="${title}" 
+            class="portfolio__media-video"  data-id="${id}"  src="../assets/medias/${video}" type="video/mp4" tabindex="0"
+            aria-label="Titre de la photo${title}"/></video>
+        </a>
         <div class="portfolio__media-text">
             <p class="portfolio__media-text-title"> ${title}</p>
             <div class="portfolio__media-text-icon">

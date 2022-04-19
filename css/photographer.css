@@ -122,6 +122,10 @@ p.portfolio__media-text-title {
   font-weight: 400;
   align-items: stretch;
 }
+.portfolio__media-text-icon button {
+  background-color: #fff;
+  border: none;
+}
 .portfolio__media-text-icon p {
   margin: 5px;
 }

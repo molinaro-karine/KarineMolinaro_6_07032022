@@ -8,17 +8,18 @@ function portfolioPhotographersFactory(data) {
         media.className = "portfolio__media";
         if (image) {
             media.innerHTML = `
-        <img alt="${title}" 
-            class="portfolio__media-img" src="../assets/medias/${image}" 
-                onclick="openLightbox(${id})"tabindex="0"
+        <a href="#" class="openLightbox" data-id="${id}" onclick="openLightbox(${id})"><img alt="${title}" 
+            class="portfolio__media-img" data-id="${id}" src="../assets/medias/${image}" 
+                 tabindex="0"
                 aria-label="Titre de la photo${title}"/>
+        </a>
         <div class="portfolio__media-text"">
             <p class="portfolio__media-text-title"> ${title}</p>
             <div class="portfolio__media-text-icon">
                 <p class="like" id="nbLike_${id}"
                     aria-label="Nombre de likes de la photo ${likes}"tabindex="0">${likes}
                 </p>
-                <img src="../assets/icons/heart.svg" alt="likes" onclick="likeMedia(${id})" tabindex="0"/>
+                <button onclick="likeMedia(${id})"><img src="../assets/icons/heart.svg" alt="likes" tabindex="0"/></button>
             </div>
         </div>
         `
@@ -36,8 +37,7 @@ function portfolioPhotographersFactory(data) {
                 <p class="like" id="nbLike_${id}" aria-label="Nombre de likes de la vidéo ${likes}"
                  tabindex="0">${likes}
                 </p>
-                <img src="../assets/icons/heart.svg" onclick="likeMedia(${id})" alt="likes"
-                    tabindex="0"/>
+                <button onclick="likeMedia(${id})"><img src="../assets/icons/heart.svg" alt="likes" tabindex="0"/></button>
             </div>
         </div>
         `

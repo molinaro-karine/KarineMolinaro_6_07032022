@@ -38,7 +38,8 @@ function lightboxFactory(medias, id) {
             if (e.key === "Escape" || e.key === "Esc") {
                lightbox.style.display = "none"
             }
-        })
+        })        
+
 
         lightbox.style.display = "block";
         if (medias[index].image) {
@@ -64,6 +65,7 @@ function lightboxFactory(medias, id) {
             });
             container.appendChild(box);
         }
+
         if (medias[index].video) {
             const box = document.createElement("div");
             box.innerHTML = `
@@ -80,6 +82,8 @@ function lightboxFactory(medias, id) {
             });
             container.appendChild(box)
         }
+       
+        
         container.appendChild(closeLightbox)
         container.appendChild(nextLightbox)
         container.appendChild(previousLightbox)

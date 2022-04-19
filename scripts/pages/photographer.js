@@ -91,6 +91,7 @@ function likeMedia(id) {
 
 }
 
+
 // Fonction de tri des médias
 function sortMedia() {
   const menu = document.querySelector('.filterContainer__filter');
@@ -141,8 +142,17 @@ function sortMedia() {
 function openLightbox(id) {
   const lightbox = lightboxFactory(mediaArray, id)
   lightbox.getLightboxDOM();
-}
+  const closeButton = document.querySelector('.lightbox .close');
+  closeButton.focus()
 
+  closeButton.addEventListener('keypress', (e) => {
+    if(e.key == "Enter"){
+      const lightbox = document.querySelector('.lightbox')
+      lightbox.style.display = "none"
+    }
+  })
+
+}
 
 
 // Fonction d'initialisation
@@ -162,7 +172,16 @@ async function init() {
   // Affiche les likes
   displayLikes(medias);
  
-  
+  // EventListener on image gallery
+  const imgLightbox = document.querySelectorAll('.openLightbox')
+  imgLightbox.forEach(el => {
+    el.addEventListener('keypress', (e) => {
+      if(e.key == "Enter"){
+        openLightbox(el.dataset.id)
+      }
+
+    })
+  })
 
 }
     

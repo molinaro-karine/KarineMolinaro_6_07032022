@@ -9,6 +9,7 @@ function lightboxFactory(medias, id) {
         container.className = "container";
         container.innerHTML = "";
         container.setAttribute("aria-label", "Aperçu du média")
+        document.querySelector('.lightbox').innerHTML = "";
 
         const closeLightbox = document.createElement("img");
         closeLightbox.src = "../assets/icons/close.svg";

@@ -1,97 +1,119 @@
-function lightboxFactory(medias, id) {
-    let index = medias.findIndex(m => m.id === id);
-
-    function getLightboxDOM() {
-
-        const lightbox = document.querySelector(".lightbox");
-        lightbox.setAttribute("tabindex", "0");
-        const container = document.createElement("div");
-        container.className = "container";
-        container.innerHTML = "";
-        container.setAttribute("aria-label", "Aperçu du média")
-        document.querySelector('.lightbox').innerHTML = "";
-
-        const closeLightbox = document.createElement("img");
-        closeLightbox.src = "../assets/icons/close.svg";
-        closeLightbox.className = "close"
-        closeLightbox.setAttribute("alt", "Fermer l'apperçu")
-        closeLightbox.setAttribute("tabindex", "0");
-
-
-        const nextLightbox = document.createElement("img");
-        nextLightbox.src = "../assets/icons/next.svg";
-        nextLightbox.className = "next";
-        nextLightbox.setAttribute("alt", "Media suivant")
-        nextLightbox.setAttribute("tabindex", "0");
-
-        const previousLightbox = document.createElement("img");
-        previousLightbox.src = "../assets/icons/previous.svg";
-        previousLightbox.className = "previous";
-        previousLightbox.setAttribute("alt", "Media précédent")
-        previousLightbox.setAttribute("tabindex", "0");
-
-        // Au clic sur l'element de fermeture
-        closeLightbox.addEventListener('click', () => {
-            lightbox.style.display = "none"
-        })
-
-        window.addEventListener('keydown', function (e){
-            if (e.key === "Escape" || e.key === "Esc") {
-               lightbox.style.display = "none"
-            }
-        })        
-
-       
-
-        
-
-        lightbox.style.display = "block";
-        if (medias[index].image) {
-            const box = document.createElement("div");
-            box.innerHTML = `
-            <img alt="${medias[index].title}" class="media" src="../assets/medias/${medias[index].image}"/>
-            `
-            nextLightbox.addEventListener('click', () => {
-                if (index < medias.length - 1) {
-                    index++
-                } else {
-                    index = 0;
-                }
-                getLightboxDOM();
-            });
-            previousLightbox.addEventListener('click', () => {
-                if (index > 0) {
-                    index--
-                } else {
-                    index = medias.length - 1;
-                }
-                getLightboxDOM();
-            });
-            container.appendChild(box);
-        }
-
-        if (medias[index].video) {
-            const box = document.createElement("div");
-            box.innerHTML = `
-            <video controls class="media" src="../assets/medias/${medias[index].video}"/>
-            `
-         
-            nextLightbox.addEventListener('click', () => {
-                index++;
-                getLightboxDOM();
-            });
-            previousLightbox.addEventListener('click', () => {
-                index--;
-                getLightboxDOM();
-            });
-            container.appendChild(box)
-        }
-       
-        
-        container.appendChild(closeLightbox)
-        container.appendChild(nextLightbox)
-        container.appendChild(previousLightbox)
-        lightbox.appendChild(container);
+/* CLASSE DE GESTION DE LA LIGHTBOX */
+class Lightbox{ 
+    constructor(mediaObject,listMediaObject) {
+        this.closeLightbox =  this.closeLightbox.bind(this);
+        this.onKeyUp = this.onKeyUp.bind(this)
+        this.selectedImage  = mediaObject; //image actuellement affichée sur la lightbox la première fois que nous cliquons
+        this.listImage = listMediaObject; 
+        this.nextPicture = this.nextPicture.bind(this);
+        this.previousPicture = this.previousPicture.bind(this);
+        this.openLightbox();
+        document.addEventListener("keyup", this.onKeyUp)
     }
-    return { getLightboxDOM };
+
+
+    onKeyUp(e) {
+        if(e.key === "Escape") {
+            this.closeLightbox(e)
+        }
+        else if(e.key === "ArrowLeft") {
+            this.previousPicture(e)
+        }
+        else if(e.key === "ArrowRight") {
+            this.nextPicture(e)
+        }
+        
+    }
+
+    displayImage (){ 
+        const selectedImageSource  = "assets/images/media/" + this.selectedImage.image;
+        const selectedVideoSource = "assets/images/media/" + this.selectedImage.video;
+        const mediaDiv = document.querySelector(".lightbox_container");
+       
+
+        
+        const mediaTitle = document.createElement("p");
+        mediaTitle.classList.add("image-title");
+        mediaTitle.setAttribute("tabindex", 0);
+        mediaTitle.textContent = this.selectedImage.title;
+
+        removeAllChildrenNodes(mediaDiv);
+
+        if (this.selectedImage.image) {
+            const imageDisplayed = document.createElement("img");
+            imageDisplayed.setAttribute("src", selectedImageSource);
+            imageDisplayed.setAttribute("alt", this.selectedImage.title);
+            mediaDiv.appendChild(imageDisplayed);
+        }
+        else { 
+            const videoDisplayed = document.createElement("video");
+            videoDisplayed.setAttribute("controls", true);
+            const videoSourceBalise = document.createElement("source");
+            videoSourceBalise.setAttribute("src", selectedVideoSource);
+            videoSourceBalise.setAttribute("type", "video/mp4");
+            videoDisplayed.appendChild(videoSourceBalise);
+            mediaDiv.appendChild(videoDisplayed);
+        }
+
+        mediaDiv.appendChild(mediaTitle);
+
+    }
+
+    openLightbox(){
+        document.querySelector(".lightbox").style.display = "block";    
+        this.displayImage()
+        document.querySelector(".lightbox").focus();
+        document.querySelector(".lightbox_close").addEventListener("click",this.closeLightbox);
+        document.querySelector(".lightbox_next").addEventListener("click",this.nextPicture);
+        document.querySelector(".lightbox_previous").addEventListener("click",this.previousPicture);
+        document.querySelector(".image-title");
+        document.querySelector(".lightbox").setAttribute("aria-hidden", false);
+        document.querySelector("main").setAttribute("aria-hidden", true);
+        document.querySelector("header").setAttribute("aria-hidden", true);
+        
+    }
+
+    closeLightbox(e){
+        e.preventDefault();
+        document.querySelector(".lightbox_close").removeEventListener("click",this.closeLightbox);
+        document.querySelector(".lightbox_next").removeEventListener("click",this.nextPicture);
+        document.querySelector(".lightbox_previous").removeEventListener("click",this.previousPicture);
+        document.removeEventListener("keyup",this.onKeyUp);
+        document.querySelector(".lightbox").style.display = "none";
+        document.querySelector(".lightbox").setAttribute("aria-hidden", true);
+        document.querySelector("main").setAttribute("aria-hidden", false);
+        document.querySelector("header").setAttribute("aria-hidden", false);
+    }
+
+    nextPicture(e){ // Clic droit
+        e.preventDefault();
+        const findCurrentPosition = (element) => element.id === this.selectedImage.id;
+        const currentIndex = this.listImage.findIndex(findCurrentPosition); //Retourne l'index de position de l'image courante et garde la valeur
+        const lastIndexOfArray = this.listImage.length -1; // Pour définir la position de la dernière image de la liste
+        if (lastIndexOfArray === currentIndex ) {
+            this.selectedImage = this.listImage[0]; // Afficher la première image si l'image actuelle était la dernière image
+            this.displayImage()
+        } else {
+            this.selectedImage = this.listImage[currentIndex+1]; // Afficher l'image suivante de la liste       
+            this.displayImage()
+        }
+        document.querySelector(".image-title").focus();
+    }
+
+    previousPicture(e){ // Clic gauche
+        e.preventDefault();
+        const findCurrentPosition = (element) => element.id === this.selectedImage.id;
+        const currentIndex = this.listImage.findIndex(findCurrentPosition); 
+        const firstIndexOfArray = 0; // Pour définir la position de la première image de la liste
+        const lastIndexOfArray = this.listImage.length -1;
+        if (firstIndexOfArray === currentIndex ) {
+            // Afficher la dernière image si l'image actuelle était la première image
+            this.selectedImage = this.listImage[lastIndexOfArray];         
+            this.displayImage()
+        } else {
+            this.selectedImage = this.listImage[currentIndex-1];         
+            this.displayImage()
+        }
+        document.querySelector(".image-title").focus();
+    }
 }

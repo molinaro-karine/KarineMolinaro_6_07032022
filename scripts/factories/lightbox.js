@@ -90,13 +90,8 @@ class Lightbox{
         const findCurrentPosition = (element) => element.id === this.selectedImage.id;
         const currentIndex = this.listImage.findIndex(findCurrentPosition); //Retourne l'index de position de l'image courante et garde la valeur
         const lastIndexOfArray = this.listImage.length -1; // Pour définir la position de la dernière image de la liste
-        if (lastIndexOfArray === currentIndex ) {
-            this.selectedImage = this.listImage[0]; // Afficher la première image si l'image actuelle était la dernière image
-            this.displayImage()
-        } else {
-            this.selectedImage = this.listImage[currentIndex+1]; // Afficher l'image suivante de la liste       
-            this.displayImage()
-        }
+        this.selectedImage = lastIndexOfArray === currentIndex ? this.listImage[0] : this.listImage[currentIndex+1];
+        this.displayImage()
         document.querySelector(".image-title").focus();
     }
 
@@ -106,14 +101,8 @@ class Lightbox{
         const currentIndex = this.listImage.findIndex(findCurrentPosition); 
         const firstIndexOfArray = 0; // Pour définir la position de la première image de la liste
         const lastIndexOfArray = this.listImage.length -1;
-        if (firstIndexOfArray === currentIndex ) {
-            // Afficher la dernière image si l'image actuelle était la première image
-            this.selectedImage = this.listImage[lastIndexOfArray];         
-            this.displayImage()
-        } else {
-            this.selectedImage = this.listImage[currentIndex-1];         
-            this.displayImage()
-        }
+        this.selectedImage = firstIndexOfArray === currentIndex ? this.listImage[lastIndexOfArray] : this.listImage[currentIndex-1];
+        this.displayImage()
         document.querySelector(".image-title").focus();
     }
 }

@@ -12,7 +12,7 @@ class PhotographerPage {
     displayPhotographerPresentation() {
        
          const {name, tagline, city, country, portrait} = this.photographerData;
-         const location = city + ", " + country;
+         const location = `${city}, ${country}`;
      
          // présentation 
          const div = document.createElement("div");
@@ -89,14 +89,14 @@ class PhotographerPage {
         if(mediaObject.image){
             const img = document.createElement( "img" );
             img.setAttribute("src", mediaSource);
-            img.setAttribute("alt",  title + ", closeup view");
+            img.setAttribute("alt",  `${title}, closeup view`);
             divMedia.appendChild(img);
         }
         else {
             const vdo = document.createElement( "video" );
             const sourceElement = document.createElement("source");
             sourceElement.setAttribute("src", mediaSource);
-            vdo.setAttribute("aria-label", "video " + title + ", closeup view");
+            vdo.setAttribute("aria-label", `video ${title}, closeup view`);
             sourceElement.setAttribute("type", "video/mp4");
             vdo.appendChild(sourceElement);
             divMedia.appendChild(vdo);
@@ -121,19 +121,19 @@ class PhotographerPage {
 
         function liked() {
     
-            let totalLikes = document.querySelector(".likes")
-            let isLiked = heartIconButton.classList.contains("isLiked")
+            const totalLikes = document.querySelector(".likes")
+            const isLiked = heartIconButton.classList.contains("isLiked")
             if (isLiked) {
                 // Supprimer la classe isLiked et décrémenter le nombre de likes
                 heartIconButton.classList.remove("isLiked")
                 nbLikes.textContent = Number(nbLikes.textContent) - 1;
                 totalLikes.textContent = Number(totalLikes.textContent) -1;
-            } else {
-                // Ajouter la classe isLiked et augmenter le nombre de likes
-                heartIconButton.classList.add("isLiked")
-                nbLikes.textContent = Number(nbLikes.textContent) + 1;
-                totalLikes.textContent = Number(totalLikes.textContent) +1;
+                return;
             }
+            // Ajouter la classe isLiked et augmenter le nombre de likes
+            heartIconButton.classList.add("isLiked")
+            nbLikes.textContent = Number(nbLikes.textContent) + 1;
+            totalLikes.textContent = Number(totalLikes.textContent) +1;
         }
         
         gallery.appendChild(article);
@@ -159,6 +159,7 @@ class PhotographerPage {
         });
     }
     
+    // Fonction qui se lance lorsqu'on execute un tri
     updateGallery(newGallery) {
         this.photographerGallery = newGallery;
         this.displayImages();
@@ -174,10 +175,10 @@ function removeAllChildrenNodes(parentNode) {
 
 
 
-/* Fontion  tri*/
+/* Fonction  tri*/
 document.querySelector(".button_dropdown").addEventListener("click", showOptions); 
 
-// fFonction qui affiche les options de tri
+// Fonction qui affiche les options de tri
 function showOptions() {
     document.querySelector(".sort_dropdown_options").classList.toggle("show");
     document.querySelector(".button_dropdown").setAttribute("aria-expanded", true);
@@ -187,7 +188,7 @@ window.addEventListener("click",hideExceptButton);
 
 // Fonction qui masque les options de tri si on clique n'importe où sur la fenêtre sauf depuis le bouton
 function hideExceptButton (event){
-    if (!event.target.matches(".button_dropdown") && !event.target.matches(".fa-chevron-down") && !event.target.matches(".button-name")) {
+    if (!event.target.matches(".button_dropdown") && !event.target.matches(".fa-chevron-down") && !event.target.matches(".btn-name")) {
         hideOptions();
     }
 }
@@ -229,7 +230,7 @@ function onKeyUpTitle(e) {
 }   
     // Trier par Popularité  likes > petits likes
 function changeButtonName(newName) {
-    document.querySelector(".button-name").textContent = newName; 
+    document.querySelector(".btn-name").textContent = newName; 
 }
 
 document.querySelector(".align-sort").addEventListener("click", sortByPopularity);
@@ -237,7 +238,7 @@ document.querySelector(".align-sort").addEventListener("keyup",onKeyUpPopularity
 
 function sortByPopularity() {
     
-    const arrayByLikes = photographerPage.photographerGallery.sort(function(a,b) {
+    const arrayByLikes = photographerPage.photographerGallery.sort((a,b) => {
         a = a.likes;
         b = b.likes;
         return b - a;
@@ -251,7 +252,7 @@ document.querySelector("#date").addEventListener("keyup",onKeyUpDate);
 
 function sortByDate() {
     
-    const arrayByDate = photographerPage.photographerGallery.sort(function(a,b) {
+    const arrayByDate = photographerPage.photographerGallery.sort((a,b) => {
         a = Date.parse(a.date); 
         b = Date.parse(b.date);
         return b - a;
@@ -266,7 +267,7 @@ document.querySelector("#title").addEventListener("keyup",onKeyUpTitle);
 
 function sortByTitle() {
 
-    const arrayByTitle = photographerPage.photographerGallery.sort(function(a,b) {
+    const arrayByTitle = photographerPage.photographerGallery.sort((a,b) => {
         a = a.title.toLowerCase();
         b = b.title.toLowerCase();
         return a < b ? -1 : a > b ? 1 : 0;
@@ -285,23 +286,20 @@ function displayLikes() {
 
 // Somme des likes
 function sumOfLikes() {
-    return photographerPage.photographerGallery.reduce(function (a, b) { //reduce() permet d'accumuler une valeur en commençant par 0
-       return a + b.likes;
-    }, 0);
+    return photographerPage.photographerGallery.reduce((a, b) => a + b.likes, 0);
  }
  
 // Afficher le prix
 function displayPrice() {
-    document.querySelector(".price").textContent=photographerPage.photographerData.price +"€ /jour"
+    document.querySelector(".price").textContent=`${photographerPage.photographerData.price}€ /jour`
 }
 
 /* RÉCUPÉRATION DES DONNÉES POUR LA PAGE DU PHOTOGRAPHE */
 
 //Récupérer toutes les données
 async function getPhotographerData() {
-    const jsonData = await fetch("data/photographers.json")
-    .then(responseData => responseData.json()) 
-    return jsonData;
+    return await fetch("data/photographers.json")
+    .then(responseData => responseData.json());
 }
 
 // UrlSearchParams

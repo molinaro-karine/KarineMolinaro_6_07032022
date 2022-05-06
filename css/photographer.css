@@ -13,9 +13,7 @@ body {
  
   margin: 2px;
 }
-p {
-  line-height: 1.5;
-}
+
 #contact_modal {
   display: none;
   position: absolute;
@@ -202,6 +200,14 @@ form input, form textarea {
   color: #ffffff;
   font-size: 1.12rem;
   font-weight: 700;
+}
+span.fas.fa-chevron-down {
+  color: #f0f5f5;
+  position: absolute;
+  top: 26px;
+  right: 13px;
+  /* left: 0; */
+  bottom: 0;
 }
 .align-sort {
   display: flex;
@@ -470,4 +476,106 @@ form {
 /*message error success*/
 .formData.success input {
   border: 2px solid #2ecc71;
+}
+#contact_modal {
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: auto;
+}
+
+.modal {
+  border-radius: 5px;
+  background-color: #DB8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+  margin-top: 62px;
+  margin-bottom: 62px;
+}
+
+.modal header {
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.close-contact-modal {
+  cursor: pointer;
+  position: absolute;
+  top: -30px;
+  right: 0;
+  font-size: 50px;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.modal header h2 {
+  font-size: 64px;
+  font-weight: normal;
+  text-align: left;
+}
+
+#profil-name {
+  display: block;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+form label {
+  color: #312E2E;
+  font-size: 36px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+}
+
+form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+
+form textarea {
+  font-family: "DM Sans", sans-serif;
+  width: 100%;
+  height: 120px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+
+.contact_button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 26px;
 }

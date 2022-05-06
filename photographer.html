@@ -12,7 +12,7 @@
   </head>
   <body>
     <header class="header_logo">
-      <a href="index.html" aria-label="FishEye Home page">
+      <a href="index.html" aria-label="Fisheye page d'accueil">
         <img src="assets/images/logo.png" class="logo logo-photographer-page" alt="Fisheye page d'accueil"/>
       </a>  
     </header>
@@ -23,14 +23,12 @@
       <div class="photographer_sort"> 
         <label for="sort" id="sort_label">Trier par</label>
         <div id="dropdownFunction" class="sort_dropdown">
-          <button type="button" name="sort" id="sort" class="button_dropdown"
-           aria-haspopup=”listbox” aria-expanded="false"  aria-activedescendant="popularity" 
-           aria-labelledby="sort_label sort_text">
-            <p class="button-name" id="sort_text">Popularité</p>
-            <span class="fas fa-chevron-down"  aria-hidden="true"></span>
+          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false">
+              
           </button>
-          <div class="sort_dropdown_options" role="listbox">
-            <div class="align-sort" tabindex="0" role="button" aria-labelledby="sort_label popularity">
+          <span class="fas fa-chevron-down"  aria-hidden="true"></span>
+          <div class="sort_dropdown_options" role="listbox" aria-label="liste_deroulante">
+            <div class="align-sort" tabindex="0" role="button" aria-labelledby="sort_label">
               <p id="popularity">Popularité</p>
               <span class="fas fa-chevron-up" aria-hidden="true"></span>
             </div>
@@ -40,7 +38,11 @@
           <span class="custom-arrow"></span>
         </div>   
       </div>
+
+
+     
       <section class="photographer_gallery">
+
       </section>
     </main>
     <div id="contact_modal" role="dialog" aria-modal="true" tabindex="0" aria-describedby="form_title modal_photographer">
@@ -50,8 +52,7 @@
             <h2 id="form_title">Contactez-moi</h2>
             <p id="modal_photographer"></p>
           </div>
-          <!--<img src="assets/icons/close.svg" alt="closing modal" role="button" onclick="closeModal()"/>-->
-          <button id="close-contact-modal"  onclick="closeModal()" aria-label="fermeture du formulaire de contact"><img src="assets/icons/close.svg" tabindex="0" aria-label="fermeture du formulaire de contact"/></button>
+          <button id="close-contact-modal"  onclick="closeModal()" aria-label="fermeture du formulaire de contact"><img src="assets/icons/close.svg" alt="close form"  aria-label="fermeture du formulaire de contact"/></button>
         </header>
 				<form class="contact_form" novalidate>
 					<div>

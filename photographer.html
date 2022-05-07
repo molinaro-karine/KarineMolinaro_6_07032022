@@ -16,16 +16,15 @@
         <img src="assets/images/logo.png" class="logo logo-photographer-page" alt="Fisheye page d'accueil"/>
       </a>  
     </header>
-    <main id="main">
 
+    <main id="main">
+        <!--Infos photographe-->
       <section class="photograph-header"></section>
-      
+      <!--Trier par popularité, date et titre -->
       <div class="photographer_sort"> 
         <label for="sort" id="sort_label">Trier par</label>
         <div id="dropdownFunction" class="sort_dropdown">
-          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false">
-              
-          </button>
+          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false"></button>
           <span class="fas fa-chevron-down"  aria-hidden="true"></span>
           <div class="sort_dropdown_options" role="listbox" aria-label="liste_deroulante">
             <div class="align-sort" tabindex="0" role="button" aria-labelledby="sort_label">
@@ -38,13 +37,10 @@
           <span class="custom-arrow"></span>
         </div>   
       </div>
-
-
-     
-      <section class="photographer_gallery">
-
-      </section>
+      <!--Galerie photographe-->
+      <section class="photographer_gallery"></section>
     </main>
+    <!--Modale formulaire-->
     <div id="contact_modal" role="dialog" aria-modal="true" tabindex="0" aria-describedby="form_title modal_photographer">
 			<div class="modal">
 				<header class="modal_header">
@@ -70,6 +66,7 @@
 				</form>
 			</div>
 		</div>
+    <!--lightbox-->
     <div class="lightbox" aria-label="image closeup view" tabindex="0"  aria-hidden="true" role="dialog">
       <button class="lightbox_close" type="button">
         <img src="assets/icons/close.svg" alt="fermer la lightbox">
@@ -83,11 +80,13 @@
         <img src="assets/icons/previous.svg" alt="image précédente">
       </button>
     </div>
+    <!--Total like, price-->
     <div class="total-likes">
       <span class="likes"></span>
       <img src="assets/icons/heart.svg" alt="heart likes icon">
       <p class="price"></p>
     </div>
+
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/factories/lightbox.js"></script>

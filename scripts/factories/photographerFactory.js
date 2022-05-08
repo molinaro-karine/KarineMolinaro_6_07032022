@@ -1,4 +1,3 @@
-
 function photographerFactory(data) {
     const {name, portrait, tagline, city, country, price,id} = data;
     const location = `${city}, ${country}`;

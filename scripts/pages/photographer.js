@@ -1,5 +1,3 @@
-let photographerPage;
-
 // Classe pour créer la page de photographe 
 class PhotographerPage {
     
@@ -130,7 +128,7 @@ class PhotographerPage {
                 totalLikes.textContent = Number(totalLikes.textContent) -1;
                 return;
             }
-            // Ajouter la classe isLiked et augmenter le nombre de likes
+           // Ajouter la classe isLiked et augmenter le nombre de likes
             heartIconButton.classList.add("isLiked")
             nbLikes.textContent = Number(nbLikes.textContent) + 1;
             totalLikes.textContent = Number(totalLikes.textContent) +1;

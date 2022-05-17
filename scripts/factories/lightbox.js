@@ -1,10 +1,14 @@
 /* CLASSE DE GESTION DE LA LIGHTBOX */
 class Lightbox{ 
-    constructor(mediaObject,listMediaObject) {
+    constructor(idActual,listMediaObject) {
+        // Sur le listMediaObject, trouver l'élément avec l'id transmis dans le constructeur
+        this.selectedImage = listMediaObject.find((data, index) => {
+            if(data.id == idActual)
+                return true;
+        });
         this.closeLightbox =  this.closeLightbox.bind(this);
         this.onKeyUp = this.onKeyUp.bind(this)
-        this.selectedImage  = mediaObject; //image actuellement affichée sur la lightbox la première fois que nous cliquons
-        this.listImage = listMediaObject; 
+        this.listImage = listMediaObject; //Objet de l'élément transmis par l'id 
         this.nextPicture = this.nextPicture.bind(this);
         this.previousPicture = this.previousPicture.bind(this);
         this.openLightbox();
@@ -26,18 +30,16 @@ class Lightbox{
     }
 
     displayImage (){ 
-        const selectedImageSource  = "assets/images/media/" + this.selectedImage.image;
-        const selectedVideoSource = "assets/images/media/" + this.selectedImage.video;
+        const selectedImageSource  = `assets/images/media/${this.selectedImage.image}`;
+        const selectedVideoSource = `assets/images/media/${this.selectedImage.video}`;
         const mediaDiv = document.querySelector(".lightbox_container");
        
-
-        
         const mediaTitle = document.createElement("p");
         mediaTitle.classList.add("image-title");
         mediaTitle.setAttribute("tabindex", 0);
         mediaTitle.textContent = this.selectedImage.title;
 
-        removeAllChildrenNodes(mediaDiv);
+        mediaDiv.innerHTML = "";
 
         if (this.selectedImage.image) {
             const imageDisplayed = document.createElement("img");

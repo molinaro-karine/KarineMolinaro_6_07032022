@@ -24,7 +24,7 @@
       <div class="photographer_sort"> 
         <label for="sort" id="sort_label">Trier par</label>
         <div id="dropdownFunction" class="sort_dropdown">
-          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false"></button>
+          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false">Par défaut</button>
           <span class="fas fa-chevron-down"  aria-hidden="true"></span>
           <div class="sort_dropdown_options" role="listbox" aria-label="liste_deroulante">
             <div class="align-sort" tabindex="0" role="button" aria-labelledby="sort_label">
@@ -34,7 +34,6 @@
             <p id="date" tabindex="0" role="button" aria-labelledby="sort_label date">Date</p>
             <p id="title" tabindex="0" role="button" aria-labelledby="sort_label title">Titre</p>
           </div>
-          <span class="custom-arrow"></span>
         </div>   
       </div>
       <!--Galerie photographe-->
@@ -54,7 +53,6 @@
 					<div>
 						<label for="name">Prénom</label>
 						<input type="text" id="name" name="name"/>
-            <div class="error"></div> 
             <label for="lastname">Nom</label>
 						<input type="text" id="lastname" name="lastname"/>
             <label for="email">Email</label>
@@ -67,7 +65,7 @@
 			</div>
 		</div>
     <!--lightbox-->
-    <div class="lightbox" aria-label="image closeup view" tabindex="0"  aria-hidden="true" role="dialog">
+    <div class="lightbox" aria-label="vue rapprochée de l'image" tabindex="0"  aria-hidden="true" role="dialog">
       <button class="lightbox_close" type="button">
         <img src="assets/icons/close.svg" alt="fermer la lightbox">
       </button>
@@ -90,5 +88,6 @@
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/factories/lightbox.js"></script>
+    <script src="scripts/factories/mediaFactory.js"></script>
   </body>
 </html>

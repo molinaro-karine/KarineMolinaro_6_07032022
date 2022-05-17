@@ -50,5 +50,6 @@ function submitModal(e) {
             message: messageValue,
         },null, 2
     ))
+   
     closeModal()
 }

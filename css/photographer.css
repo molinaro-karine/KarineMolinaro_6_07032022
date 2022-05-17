@@ -40,7 +40,7 @@ body {
 }
 
 .photographer_portrait {
-  margin-left: 4%;
+  margin-left: 15%;
 }
 
 .photographer_portrait img {
@@ -55,7 +55,7 @@ body {
 .photograph-header h2 {
   margin-block: 0;
   color: #D3573C;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 400;
 }
 
@@ -301,6 +301,7 @@ span.fas.fa-chevron-down {
   margin-right: auto;
   font-size: 1.5em;
   font-weight: 400;
+  margin-top: 8px;
 }
 
 .heart_icon-button {
@@ -442,6 +443,9 @@ gap:18px
 }
 .photographer_presentation {
     padding: 5px;
+}
+.photographer_portrait {
+    margin-left: 1%;
 }
 .total-likes {
     width: 70%;

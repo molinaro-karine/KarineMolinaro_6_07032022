@@ -4,7 +4,10 @@ body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
 }
-
+#block-page{
+    max-width: 1400px;
+    margin: auto;
+  }
 header {
     display: flex;
     flex-direction: row;

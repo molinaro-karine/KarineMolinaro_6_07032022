@@ -11,6 +11,7 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
+    <div id="block-page">
     <header class="header_logo">
       <a href="index.html" aria-label="Fisheye page d'accueil">
         <img src="assets/images/logo.png" class="logo logo-photographer-page" alt="Fisheye page d'accueil"/>
@@ -24,7 +25,7 @@
       <div class="photographer_sort"> 
         <label for="sort" id="sort_label">Trier par</label>
         <div id="dropdownFunction" class="sort_dropdown">
-          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false">Par défaut</button>
+          <button type="button" name="sort" id="sort" class="button_dropdown btn-name" aria-expanded="false">Popularité</button>
           <span class="fas fa-chevron-down"  aria-hidden="true"></span>
           <div class="sort_dropdown_options" role="listbox" aria-label="liste_deroulante">
             <div class="align-sort" tabindex="0" role="button" aria-labelledby="sort_label">
@@ -84,10 +85,10 @@
       <img src="assets/icons/heart.svg" alt="heart likes icon">
       <p class="price"></p>
     </div>
-
-    <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/factories/lightbox.js"></script>
-    <script src="scripts/factories/mediaFactory.js"></script>
   </body>
+  <script src="scripts/utils/contactForm.js"></script>
+  <script src="scripts/pages/photographer.js"></script>
+  <script src="scripts/factories/lightbox.js"></script>
+  <script src="scripts/factories/mediaFactory.js"></script>
+</div>
 </html>

@@ -12,7 +12,7 @@ function photographerFactory(data) {
         
         const img = document.createElement( "img" );
         img.setAttribute("src", pictureSource);
-        img.setAttribute("alt","");
+        img.setAttribute("alt", name);
         img.classList.add("photographer_page_portrait");
         
         const h2 = document.createElement( "h2" );

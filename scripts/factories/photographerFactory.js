@@ -1,9 +1,12 @@
+// Fonction Factory
+// eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
     const {name, portrait, tagline, city, country, price,id} = data;
     const location = `${city}, ${country}`;
     const priceDay = `${price}€/jour`;
     const pictureSource = `assets/photographers/${portrait}`;
-
+    
+    //fonction de création des vignettes de la page d'accueil
     function getUserCardDOM() {
         const article = document.createElement( "article" );       
         const linkPhotographer = document.createElement("a");

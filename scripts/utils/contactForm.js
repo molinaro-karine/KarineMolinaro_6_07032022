@@ -1,4 +1,5 @@
-
+// Affiche le formulaire modal 
+// eslint-disable-next-line no-unused-vars
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.setAttribute("aria-hidden", false);
@@ -16,13 +17,14 @@ function keyUpContactForm(event) {
         event.preventDefault()
     }
 }
+// ferme la modale si l'utilisateur appuie sur escape
 function keyUpModal(event) {
     event.preventDefault()
     if(event.key==="Escape") {
         closeModal()
     }
 }
-
+// Masquer le modal du formulaire
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.setAttribute("aria-hidden", true);
@@ -32,7 +34,7 @@ function closeModal() {
     modal.style.display = "none";
     document.querySelector(".contact_button").focus();
 }
-
+// On crée le gestionnaire d'événement interceptant le clic du bouton de soumission
 document.querySelector(".submit_button").addEventListener("click", submitModal);
 
 function submitModal(e) {
@@ -41,7 +43,7 @@ function submitModal(e) {
     const lastNameValue = document.querySelector("#lastname").value;
     const emailValue = document.querySelector("#email").value;
     const messageValue = document.querySelector("#message").value;
-
+// On envoie les quatres champs dans la console
     console.log( JSON.stringify(
         {
             name: nameValue,

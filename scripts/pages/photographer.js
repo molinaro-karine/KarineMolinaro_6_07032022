@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // Classe pour créer la page de photographe 
 class PhotographerPage {
     constructor(photographerData) {
@@ -94,6 +95,7 @@ function onKeyUpEscape(e) {
     }
 } 
 
+// eslint-disable-next-line no-unused-vars
 function changeButtonName(newName) {
     document.querySelector(".btn-name").textContent = newName; 
 }

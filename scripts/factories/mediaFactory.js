@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+//eslint-disable-next-line no-unused-vars
 function mediaFactory(mediaObject) {
     const {image, title, likes, video, id} = mediaObject;
     const mediaSource = `assets/images/media/${image || video}`;
@@ -88,6 +90,7 @@ function mediaFactory(mediaObject) {
             b = b.likes;
             return b - a;
         })
+        
         changeButtonName("Popularité")
         hideOptions();
         return(arrayByLikes);

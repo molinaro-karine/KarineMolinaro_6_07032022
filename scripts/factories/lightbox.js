@@ -1,8 +1,9 @@
 /* CLASSE DE GESTION DE LA LIGHTBOX */
+// eslint-disable-next-line no-unused-vars
 class Lightbox{ 
     constructor(idActual,listMediaObject) {
         // Sur le listMediaObject, trouver l'élément avec l'id transmis dans le constructeur
-        this.selectedImage = listMediaObject.find((data, index) => {
+        this.selectedImage = listMediaObject.find((data) => {
             if(data.id == idActual)
                 return true;
         });

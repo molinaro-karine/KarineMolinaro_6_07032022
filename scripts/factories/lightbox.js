@@ -1,4 +1,5 @@
 /* CLASSE DE GESTION DE LA LIGHTBOX */
+
 // eslint-disable-next-line no-unused-vars
 class Lightbox{ 
     constructor(idActual,listMediaObject) {

@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 // Classe pour créer la page de photographe 
 class PhotographerPage {
     constructor(photographerData) {
@@ -94,6 +95,7 @@ function onKeyUpEscape(e) {
         hideOptions();
     }
 } 
+
 
 // eslint-disable-next-line no-unused-vars
 function changeButtonName(newName) {
